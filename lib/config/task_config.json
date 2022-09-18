@@ -1,0 +1,15 @@
+{
+    "state_pred": {
+        "allowed_model": [
+             "HiGRU"
+        ],
+        "allowed_dataset": [
+             "OI","Ocean_sensor_2022_2"
+        ],
+        "HiGRU": {
+            "dataset_class": "StatePointDataset",
+            "executor": "StateExecutor",
+            "evaluator": "StateEvaluator"
+        }
+    }
+}
