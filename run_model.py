@@ -28,9 +28,9 @@ if __name__ == '__main__':
     parser.add_argument('--task', type=str,
                         default='state_pred', help='the name of task')
     parser.add_argument('--model', type=str,
-                        default='AGCRN', help='the name of model')
+                        default='HiGRN', help='the name of model')
     parser.add_argument('--dataset', type=str,
-                        default='Ocean_sensor_2022_2', help='the name of dataset')
+                        default='OI', help='the name of dataset')
     # parser.add_argument('--model', type=str,
     #                     default='LSTM', help='the name of model')
     # parser.add_argument('--model', type=str,
