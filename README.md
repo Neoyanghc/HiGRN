@@ -1,5 +1,6 @@
 # HiGRN
-HiGRN: A Hierarchical Graph Recurrent Network for Global Sea Surface Temperature Prediction
+HiGRN: A Hierarchical Graph Recurrent Network for Global Sea Surface Temperature Prediction 
+https://dl.acm.org/doi/10.1145/3597937
 
 
 
