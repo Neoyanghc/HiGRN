@@ -64,7 +64,6 @@ def calculate_first_approx(weight):
     :param W: weighted adjacency matrix of G. Not laplacian matrix.
     :return: np.ndarray
     '''
-    # TODO: 如果W对角线本来就是全1？
     n = weight.shape[0]
     adj = weight + np.identity(n)
     d = np.sum(adj, axis=1)
@@ -188,7 +187,7 @@ class AGCN(nn.Module):
         # x shaped[B, N, C], node_embeddings shaped [N, D] -> supports shaped [N, N]
         # output shape [B, N, C]
         node_num = node_embeddings.shape[0]
-        # 直接当作是拉普拉斯矩阵 Todo
+        # 直接当作是拉普拉斯矩阵
         # supports = F.softmax(F.relu(torch.mm(node_embeddings, node_embeddings.transpose(0, 1))), dim=1)
         # supports = F.softmax(F.relu(torch.mm(node_embeddings_1, node_embeddings_2)), dim=1)
         # supports = torch.from_numpy(laplacian_mx).to(node_embeddings.device)
@@ -213,7 +212,7 @@ class AGCN(nn.Module):
         return x_gconv
 
 class Embedded_GCN(nn.Module):
-    # Todo
+
     def __init__(self, dim_in, dim_out, cheb_k, embed_dim):
         super(Embedded_GCN, self).__init__()
         self.cheb_k = cheb_k
@@ -224,7 +223,6 @@ class Embedded_GCN(nn.Module):
         # x shaped[B, N, C], node_embeddings shaped [N, D] -> supports shaped [N, N]
         # output shape [B, N, C]
         node_num = node_embeddings.shape[0]
-        # 直接当作是拉普拉斯矩阵 Todo
         supports = F.softmax(F.relu(torch.mm(node_embeddings, node_embeddings.transpose(0, 1))), dim=1)
         # supports = F.softmax(F.relu(torch.mm(node_embeddings_1, node_embeddings_2)), dim=1)
         # supports = torch.from_numpy(laplacian_mx).to(node_embeddings.device)
@@ -246,7 +244,6 @@ class Embedded_GCN(nn.Module):
 
 
 class HCGCN(nn.Module):
-    # Todo
     # Hierarchical Cluster Graph Convolution
     def __init__(self, dim_in, dim_out, cheb_k, embed_dim):
         super(HCGCN, self).__init__()
@@ -260,7 +257,6 @@ class HCGCN(nn.Module):
         # x shaped[B, N, C], node_embeddings shaped [N, D] -> supports shaped [N, N]
         # output shape [B, N, C]
         node_num = node_embeddings.shape[0]
-        # 直接当作是拉普拉斯矩阵 Todo
         supports = F.softmax(F.relu(torch.mm(node_embeddings, node_embeddings.transpose(0, 1))), dim=1)
         # supports = F.softmax(F.relu(torch.mm(node_embeddings_1, node_embeddings_2)), dim=1)
         # supports = torch.from_numpy(laplacian_mx[0]).to(node_embeddings.device)
@@ -327,7 +323,7 @@ class AGCRNCell(nn.Module):
     def forward(self, x, state, node_embeddings,laplacian_mx):
         # x: B, num_nodes, input_dim
         # state: B, num_nodes, hidden_dim
-        # 这边是GRU的实现
+        # GRU
         state = state.to(x.device)
         # x_location = x[:,:,1:]
         # x_input = x[:,:,:1]
